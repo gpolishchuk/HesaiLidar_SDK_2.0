@@ -182,6 +182,12 @@ void GeneralParser<T_Point>::LoadFiretimesFile(std::string firetimes_path) {
       std::string index, deltTime;
       std::getline(ss, index, ',');
       std::getline(ss, deltTime, ',');
+      int i = std::stoi(index) - 1;
+      if (0<=i && i<this->firetime_correction_.size() ){
+        this->firetime_correction_[i] = std::stod(deltTime);
+      }else{
+        this->firetime_correction_.push_back(std::stod(deltTime));
+      }
     }
     this->get_firetime_file_ = true;
     std::cout << "Open firetime file success!" << std::endl;

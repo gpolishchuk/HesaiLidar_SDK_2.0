@@ -242,7 +242,7 @@ class GeneralParser {
   uint32_t last_seqnum_;
   uint32_t loss_count_;
   uint32_t start_time_;
-  double firetime_correction_[512];
+  std::vector<double> firetime_correction_= std::vector<double>(512, 0.0);
   bool enable_firetime_correction_;
   bool enable_distance_correction_;
   bool enable_packet_loss_tool_;
