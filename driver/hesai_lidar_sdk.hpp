@@ -75,7 +75,10 @@ public:
     /***********************************************************************************/ 
     return true;
   }
-
+  bool IsPlayEnded()
+  {
+    return lidar_ptr_->IsPlayEnded();
+  }
   // stop process thread
   void Stop() {
     if (nullptr != runing_thread_ptr_) {
